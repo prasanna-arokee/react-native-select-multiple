@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { View, ListView, Text, TouchableWithoutFeedback, Image } from 'react-native'
 import styles from './SelectMultiple.styles'
-import checkbox from '../images/icon-checkbox.png'
-import checkboxChecked from '../images/icon-checkbox-checked.png'
+import checkbox from '../images/tick.png'
+import checkboxChecked from '../images/ticked.png'
 import { mergeStyles } from './style'
 
 const itemType = PropTypes.oneOfType([
@@ -152,8 +152,9 @@ export default class SelectMultiple extends Component {
     return (
       <TouchableWithoutFeedback onPress={() => this.onRowPress(row)}>
         <View style={rowStyle}>
+        {this.renderLabel(row.label, labelStyle, row.selected)}
           <Image style={checkboxStyle} source={checkboxSource} />
-          {this.renderLabel(row.label, labelStyle, row.selected)}
+         
         </View>
       </TouchableWithoutFeedback>
     )
